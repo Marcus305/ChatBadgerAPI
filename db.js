@@ -1,4 +1,6 @@
-const Users = [];
-let User = null;
+const db = {
+    Users: [],
+    User: null,
+}
 
-export {Users, User};
+export default db;
