@@ -3,4 +3,14 @@ const db = {
     User: null,
 }
 
+/* 
+    User: {
+        id:
+        username:
+        password:
+    }
+
+
+*/
+
 export default db;
