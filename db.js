@@ -1,6 +1,7 @@
 const db = {
     Users: [],
-    User: null,
+    User: null, //logged user
+    Rooms: []
 }
 
 /* 
@@ -10,6 +11,17 @@ const db = {
         password:
     }
 
+    Room: {
+        id:
+        users: [{id}]
+        messages: [
+            {
+                id:
+                userId:
+                Message:
+            }
+        ]
+    }
 
 */
 

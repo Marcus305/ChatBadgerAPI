@@ -1,5 +1,7 @@
-import router from "./routes.js";
+import userRouter from "./userRoutes.js";
+import roomRouter from "./roomRoutes.js";
 import express from "express";
+import messageRouter from "./messageRoutes.js";
 const app = express();
 
 app.use(express.json());
@@ -10,8 +12,8 @@ app.listen(port, () => {
   console.log(`Server listening on port: ${port}`);
 });
 
-app.use("/users", router);
+app.use("/users", userRouter);
 
-app.get("/", (req, res) => {
-  res.send("Hello, Express!");
-});
+app.use("/rooms", roomRouter);
+
+app.use("/message", messageRouter);

@@ -1,12 +1,12 @@
 /* const express = require('express'); */
 import db from "./db.js";
 import express from "express";
-const router = express.Router();
+const userRouter = express.Router();
 
-//router.use(express.json());
+//userRouter.use(express.json());
 
 //Create a new user
-router.post("/", (req, res) => {
+userRouter.post("/", (req, res) => {
     const { username, password } = req.body;
 
 	if(!username || !password) {
@@ -31,7 +31,7 @@ router.post("/", (req, res) => {
 });
 
 //User login
-router.post("/login", (req, res) => {
+userRouter.post("/login", (req, res) => {
 
 	const { username, password } = req.body;
 	const login = db.Users.find((user) => (user.username === username && user.password === password));
@@ -50,18 +50,18 @@ router.post("/login", (req, res) => {
 });
 
 //User logout
-router.delete("/logout", (req, res) => {
+userRouter.delete("/logout", (req, res) => {
     db.User = null;
     res.status(200).json({message: "Logout successful"});
 });
 
 //Show all users data
-router.get("/show", (req, res) => {
+userRouter.get("/show", (req, res) => {
     res.status(200).json(db.Users);
 });
 
 //Show user data by id
-router.get("/:id", (req, res) => {
+userRouter.get("/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const user = db.Users.find((user) => user.id === id);
     if (!user) {
@@ -71,4 +71,5 @@ router.get("/:id", (req, res) => {
     }
 });
 
-export default router;
+
+export default userRouter;
