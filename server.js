@@ -16,4 +16,4 @@ app.use("/users", userRouter);
 
 app.use("/rooms", roomRouter);
 
-app.use("/message", messageRouter);
+app.use("/messages", messageRouter);

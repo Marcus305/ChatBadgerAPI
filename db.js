@@ -1,14 +1,27 @@
 const db = {
     Users: [],
     User: null, //logged user
-    Rooms: []
-}
+    Rooms: [],
+};
 
 /* 
     User: {
         id:
         username:
         password:
+        Directs: [
+            {
+                id:
+                userid: //the user 
+                messages: [
+                    {
+                        id:
+                        sender:
+                        message:
+                    }
+                ]
+            }
+        ]
     }
 
     Room: {
@@ -22,6 +35,8 @@ const db = {
             }
         ]
     }
+
+    
 
 */
 

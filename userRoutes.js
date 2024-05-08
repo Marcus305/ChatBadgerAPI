@@ -22,7 +22,8 @@ userRouter.post("/", (req, res) => {
     const newUser = {
 		id: id,
 		username: username,
-		password: password
+		password: password,
+		direct: []
 	};
 
     db.Users.push(newUser);
