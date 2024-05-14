@@ -59,6 +59,26 @@ roomRouter.post("/:id/enter", (req, res) => {
     return res.status(200).json(db.Rooms[index]);
 });
 
+
+//Leave in a specific room
+roomRouter.post("/:id/leave", (req, res) => {
+	if(db.User === null) {
+		return res.status(401).json({error: "You need to be logged in to do this"});
+	}
+    const roomId = parseInt(req.params.id);
+
+    const room = db.Rooms.find((room) => room.id === roomId);
+
+    if (room !== undefined) {
+        const roomIndex = db.Rooms.indexOf(room);
+        const userIndex = db.Rooms[roomIndex].users.indexOf(db.User.id);
+        db.Rooms[roomIndex].users.splice(userIndex, 1);
+        return res.status(200).json(room);
+    } else {
+        return res.status(404).json({ error: "Room not found" });
+    }
+});
+
 //Remove a user in a room
 roomRouter.delete("/:roomid/users/:userid", (req, res) => {
 	if(db.User === null) {
