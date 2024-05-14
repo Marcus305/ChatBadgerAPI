@@ -62,11 +62,6 @@ userRouter.delete("/logout", (req, res) => {
     return res.status(200).json({ message: "Logout successful" });
 });
 
-/*//Show all users data
-userRouter.get("/show", (req, res) => {
-    res.status(200).json(db.Users);
-});*/
-
 //Show user data by id
 userRouter.get("/:id", (req, res) => {
     if (db.User === null) {
